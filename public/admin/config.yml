@@ -1,0 +1,31 @@
+backend:
+  name: github
+  repo: khrs1/opbevaring-af-campingvogne
+  branch: main
+  base_url: https://decap-oauth-camping.dronefotoaarhus.workers.dev
+  auth_endpoint: auth
+  auth_scope: repo
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: '[skip ci] Upload "{{path}}"'
+    deleteMedia: '[skip ci] Delete "{{path}}"'
+
+local_backend: false
+
+media_folder: "public/img/uploads"
+public_folder: "/img/uploads"
+
+logo_url: /favicon.svg
+
+collections:
+  - name: "pages"
+    label: "Sider"
+    folder: "src/pages"
+    create: false
+    extension: "astro"
+    summary: "{{title}}"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Indhold", name: "body", widget: "markdown" }
