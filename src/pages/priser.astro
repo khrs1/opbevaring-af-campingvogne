@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Priser">
+<Layout title="Priser på opbevaring af campingvogn – vinter- og helårsopbevaring">
   <section class="page-hero">
     <div class="container">
       <h1>Priser på opbevaring</h1>
@@ -14,37 +14,46 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <div class="center">
         <span class="kicker">Opbevaringspriser</span>
-        <h2>Fleksible priser efter behov</h2>
-        <p class="lead">Vi tilbyder vinteropbevaring og halv- til helårs opbevaring. Priserne afhænger af dit køretøjs størrelse og opbevaringsperiode.</p>
+        <h2>Hvad koster opbevaring af campingvogn?</h2>
+        <p class="lead">Prisen afhænger af dit køretøjs størrelse og opbevaringsperiode. Vi tilbyder vinteropbevaring og halv- til helårs opbevaring til jyske priser.</p>
       </div>
 
       <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
         <div class="card">
           <div class="card-body" style="text-align:center">
             <h3 style="font-size:1.35rem">Vinteropbevaring</h3>
-            <p>Opbevaring over vintersæsonen i vores ventileret hal.</p>
-            <p style="font-weight:800;color:var(--orange);font-size:1.1rem;margin-top:auto">Kontakt os for pris</p>
+            <p>Opbevaring over vintersæsonen i vores ventileret hal, så din campingvogn holder sig tør og frostsikret.</p>
+            <p style="font-weight:800;color:var(--orange);font-size:1.1rem;margin-top:auto">Få et uforpligtende tilbud</p>
           </div>
         </div>
         <div class="card">
           <div class="card-body" style="text-align:center">
             <h3 style="font-size:1.35rem">Helårsopbevaring</h3>
-            <p>Tryg opbevaring hele året rundt, så din vogn står klar når du skal bruge den.</p>
-            <p style="font-weight:800;color:var(--orange);font-size:1.1rem;margin-top:auto">Kontakt os for pris</p>
+            <p>Tryg opbevaring hele året rundt, så din campingvogn eller autocamper står klar, når du skal bruge den.</p>
+            <p style="font-weight:800;color:var(--orange);font-size:1.1rem;margin-top:auto">Få et uforpligtende tilbud</p>
           </div>
         </div>
         <div class="card">
           <div class="card-body" style="text-align:center">
             <h3 style="font-size:1.35rem">Klargøring</h3>
             <p>Mod betaling hjælper vi med klargøring – rens og vask, tømning af vand mm.</p>
-            <p style="font-weight:800;color:var(--orange);font-size:1.1rem;margin-top:auto">Kontakt os for pris</p>
+            <p style="font-weight:800;color:var(--orange);font-size:1.1rem;margin-top:auto">Få et uforpligtende tilbud</p>
           </div>
         </div>
       </div>
 
-      <div style="text-align:center;margin-top:2.5rem">
-        <p style="color:var(--muted);margin-bottom:1.25rem">Priserne varierer efter køretøjets størrelse og periode. Ring og få et uforpligtende tilbud.</p>
-        <a href="tel:+4527210795" class="btn">Ring til Jens: +45 27 21 07 95</a>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:2rem;max-width:760px;margin:2.5rem auto 0">
+        <h3 style="color:var(--navy);margin-bottom:1rem">Hvad påvirker prisen?</h3>
+        <ul style="margin:0 0 1.25rem 1.25rem;display:grid;gap:.5rem">
+          <li><strong>Køretøjets størrelse</strong> – en stor autocamper fylder mere end en lille campingvogn.</li>
+          <li><strong>Opbevaringsperiode</strong> – vinteropbevaring eller helårsopbevaring.</li>
+          <li><strong>Klargøring</strong> – eventuel rens, vask og tømning af vand.</li>
+        </ul>
+        <p style="color:var(--muted);margin-bottom:1.25rem">Alle vores priser er jyske priser, og vi afgiver altid et uforpligtende tilbud, så du kender prisen, før du beslutter dig.</p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="/kontakt" class="btn">Få et tilbud</a>
+          <a href="tel:+4527210795" class="btn btn-green">Ring til Jens: +45 27 21 07 95</a>
+        </div>
       </div>
     </div>
   </section>
