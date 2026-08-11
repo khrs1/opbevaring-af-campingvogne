@@ -3,49 +3,48 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Om os">
-  <section class="hero">
+  <section class="page-hero">
     <div class="container">
       <h1>Lokal virksomhed i Ejstrupholm</h1>
       <p>Vi er en familieejet virksomhed, der tilbyder opbevaring af campingvogne, autocampere, både og veteranbiler på vores landejendom i Ejstrupholm.</p>
-      <a href="/kontakt" class="btn">Kontakt os</a>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <h2>Om opbevaring-af-campingvogne.dk</h2>
-      <p class="lead">Vores landejendom har været flere generationer i familien. I dag tilbyder vi udlejning af pladsen i maskinhusene, så disse ikke står tomme. Vi kender selv til hovedpinerne med at have opbevaret både over vinteren, så nu vil vi tilbyde andre muligheden for at drage nytte af den plads, vi har.</p>
+      <div class="center">
+        <span class="kicker">Hvem er vi?</span>
+        <h2>Om opbevaring-af-campingvogne.dk</h2>
+        <p class="lead">Vores landejendom har været flere generationer i familien. I dag tilbyder vi udlejning af pladsen i maskinhusene, så disse ikke står tomme. Vi kender selv til hovedpinerne med at have opbevaret både over vinteren, så nu vil vi tilbyde andre muligheden for at drage nytte af den plads, vi har.</p>
+      </div>
 
-      <div style="max-width:700px;margin:0 auto">
-        <h2 style="font-size:1.4rem;margin-top:2rem">Hvem er vi?</h2>
-        <p style="margin-bottom:1rem">Velkommen til opbevaring-af-campingvogne.dk – din partner, når det gælder opbevaring af campingvogne, autocampere, både (på bådtrailere) og andre køretøjer.</p>
-        <p style="margin-bottom:1rem">Vi forstår værdien af dine værdifulde ejendele og er stolte af at tilbyde en førsteklasses indendørs opbevaringsløsning. Vi stræber efter at være din pålidelige partner, der sikrer, at dine investeringer opbevares sikkert og med omhu.</p>
-
-        <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-top:2rem">
-          <strong style="font-size:1.1rem">Jens Krog Nielsen</strong>
-          <p style="color:var(--muted)">Ejer</p>
+      <div class="profile">
+        <img src="/img/jens.jpg" alt="Jens Krog Nielsen" />
+        <div class="profile-body">
+          <strong>Jens Krog Nielsen</strong>
+          <p>Ejer</p>
         </div>
+      </div>
 
-        <h2 style="font-size:1.4rem;margin-top:2rem">Hvorfor vælge os?</h2>
-        <ul style="margin:1rem 0 1rem 1.5rem;display:grid;gap:.75rem">
-          <li><strong>Indendørs opbevaring</strong> – moderne faciliteter, der beskytter mod vejret.</li>
-          <li><strong>Gratis opsyn og overvågning</strong> – sikkerhed døgnet rundt.</li>
-          <li><strong>Jyske priser</strong> – kvalitetsopbevaring til alle.</li>
-          <li><strong>Slip 100% for frostskader</strong> – velventilerede haller.</li>
-          <li><strong>Velventileret hal med udluftning</strong> – godt miljø for dine ejendele.</li>
-          <li><strong>Videoovervågning 24/7</strong> – dine ejendele under konstant opsyn.</li>
-        </ul>
-
-        <p style="margin-top:2rem">Giv dine værdifulde ejendele den opbevaring, de fortjener. Kontakt os i dag for at diskutere dine behov og sikre en plads i vores opbevaringsfaciliteter.</p>
+      <div style="max-width:720px;margin:2.5rem auto 0">
+        <h2 style="font-size:1.5rem;text-align:center;margin-bottom:1rem">Hvorfor vælge os?</h2>
+        <div class="features" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));text-align:left">
+          <div class="feature" style="text-align:left"><div class="icon" style="margin:0 0 .8rem">🏠</div><div class="lbl">Indendørs opbevaring</div><p>Moderne faciliteter, der beskytter mod vejrets luner.</p></div>
+          <div class="feature" style="text-align:left"><div class="icon" style="margin:0 0 .8rem">📹</div><div class="lbl">Gratis opsyn og overvågning</div><p>Sikkerhed døgnet rundt.</p></div>
+          <div class="feature" style="text-align:left"><div class="icon" style="margin:0 0 .8rem">💰</div><div class="lbl">Jyske priser</div><p>Kvalitetsopbevaring til alle.</p></div>
+          <div class="feature" style="text-align:left"><div class="icon" style="margin:0 0 .8rem">🌡️</div><div class="lbl">Slip 100% for frostskader</div><p>Velventilerede haller.</p></div>
+          <div class="feature" style="text-align:left"><div class="icon" style="margin:0 0 .8rem">💨</div><div class="lbl">Velventileret hal med udluftning</div><p>Godt miljø for dine ejendele.</p></div>
+          <div class="feature" style="text-align:left"><div class="icon" style="margin:0 0 .8rem">🔒</div><div class="lbl">Videoovervågning 24/7</div><p>Dine ejendele under konstant opsyn.</p></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="background:var(--green);color:#fff;text-align:center">
+  <section class="cta-banner">
     <div class="container">
-      <h2 style="color:#fff">Ring til Jens</h2>
-      <p style="color:rgba(255,255,255,.9);max-width:500px;margin:0 auto 1.5rem">Ønsker du at vide mere om vores opbevaringsmuligheder? Ring til os og hør mere om faciliteter og priser.</p>
-      <a href="tel:+4527210795" class="btn btn-amber">+45 27 21 07 95</a>
+      <h2>Ring til Jens</h2>
+      <p>Ønsker du at vide mere om vores opbevaringsmuligheder? Ring til os og hør mere om faciliteter og priser.</p>
+      <a href="tel:+4527210795" class="btn">+45 27 21 07 95</a>
     </div>
   </section>
 </Layout>

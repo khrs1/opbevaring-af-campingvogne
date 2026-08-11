@@ -3,66 +3,93 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Opbevaring af campingvogne og både i Jylland">
-  <!-- Hero -->
+  <!-- Hero with photo -->
   <section class="hero">
-    <div class="container">
+    <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=1600&auto=format&fit=crop')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
       <h1>Opbevar din campingvogn og båd sikkert</h1>
       <p>Tag fat i os i dag og få et uforpligtende tilbud på opbevaring. Vi har plads til autocampere, campingvogne og både i Jylland.</p>
-      <a href="/kontakt" class="btn">Få et tilbud</a>
-      <a href="/om-os" class="btn btn-outline">Om os</a>
+      <a href="/om-os" class="btn">Om os</a>
+      <a href="/kontakt" class="btn btn-green">Kontakt os</a>
     </div>
   </section>
 
   <!-- Welcome -->
   <section class="section">
     <div class="container">
-      <h2>Velkommen til opbevaring-af-campingvogne.dk</h2>
-      <p class="lead">Leder du efter det perfekte sted at opbevare din campingvogn eller båd? Så har vi stedet til dig i Ejstrupholm i Jylland. Vi sørger for, at din campingvogn holder sig tør og har en sikker vinterplads. Vi tilbyder vinteropbevaring og halv- til helårs opbevaring.</p>
+      <div class="center">
+        <span class="kicker">Hvem er vi?</span>
+        <h2>Velkommen til opbevaring-af-campingvogne.dk</h2>
+        <p class="lead">Leder du efter det perfekte sted at opbevare din campingvogn eller båd? Så har vi stedet til dig i Ejstrupholm i Jylland. Vi sørger for, at din campingvogn holder sig tør og har en sikker vinterplads. Vi tilbyder vinteropbevaring og halv- til helårs opbevaring.</p>
+      </div>
 
       <div class="features">
-        <div class="feature"><div class="lbl">Indendørs opbevaring</div><p>Din vogn står beskyttet i vores haller året rundt.</p></div>
-        <div class="feature"><div class="lbl">Gratis opsyn og overvågning</div><p>Videoovervågning døgnet rundt.</p></div>
-        <div class="feature"><div class="lbl">Jyske priser</div><p>Rimelige og konkurrencedygtige priser.</p></div>
-        <div class="feature"><div class="lbl">Tør og sikker opbevaring</div><p>Beskytter mod vejrets luner.</p></div>
-        <div class="feature"><div class="lbl">Ventileret hal</div><p>God luftcirkulation for optimal opbevaring.</p></div>
-        <div class="feature"><div class="lbl">Videoovervågning 24/7</div><p>Din vogn er under konstant opsyn.</p></div>
+        <div class="feature"><div class="icon">🏠</div><div class="lbl">Indendørs opbevaring</div><p>Din vogn står beskyttet i vores haller året rundt.</p></div>
+        <div class="feature"><div class="icon">📹</div><div class="lbl">Gratis opsyn og overvågning</div><p>Videoovervågning døgnet rundt.</p></div>
+        <div class="feature"><div class="icon">💰</div><div class="lbl">Jyske priser</div><p>Rimelige og konkurrencedygtige priser.</p></div>
+        <div class="feature"><div class="icon">🌡️</div><div class="lbl">Tør og sikker opbevaring</div><p>Beskytter mod vejrets luner.</p></div>
+        <div class="feature"><div class="icon">💨</div><div class="lbl">Ventileret hal</div><p>God luftcirkulation for optimal opbevaring.</p></div>
+        <div class="feature"><div class="icon">🔒</div><div class="lbl">Videoovervågning 24/7</div><p>Din vogn er under konstant opsyn.</p></div>
+      </div>
+
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/opbevaring" class="btn btn-green">Opbevaringsmuligheder</a>
       </div>
     </div>
   </section>
 
-  <!-- What we store -->
+  <!-- What we store (cards with images) -->
   <section class="section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
     <div class="container">
-      <h2>Hvad opbevarer vi?</h2>
-      <p class="lead">Vores faciliteter er skræddersyet til forskellige køretøjer.</p>
+      <div class="center">
+        <span class="kicker">Opbevaringstyper</span>
+        <h2>Hvad opbevarer vi?</h2>
+        <p class="lead">Vores faciliteter er skræddersyet til forskellige køretøjer.</p>
+      </div>
       <div class="cards">
-        <div class="card"><h3>Campingvogne</h3><p>Den opgave vi oftest får. Vi sørger for, at dit andet hjem står sikkert året rundt.</p></div>
-        <div class="card"><h3>Både</h3><p>Erfaring med opbevaring af både på trailere. Kan mod betaling hjælpe med klargøring til vinteropbevaring.</p></div>
-        <div class="card"><h3>Autocampere</h3><p>Din autocamper står trygt i vores bygning i off-sæsonen.</p></div>
-        <div class="card"><h3>Veteranbiler</h3><p>Vi opbevarer gerne veteranbiler. Bemærk, der ikke er varme året rundt.</p></div>
-        <div class="card"><h3>Motorcykler</h3><p>Vi opbevarer gerne motorcykler. Bemærk, der ikke er varme året rundt.</p></div>
+        <div class="card">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=600&auto=format&fit=crop" alt="Campingvogn" loading="lazy" /></div>
+          <div class="card-body"><h3>Campingvogne</h3><p>Den opgave vi oftest får. Vi sørger for, at dit andet hjem står sikkert året rundt.</p></div>
+        </div>
+        <div class="card">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=600&auto=format&fit=crop" alt="Båd" loading="lazy" /></div>
+          <div class="card-body"><h3>Både</h3><p>Erfaring med opbevaring af både på trailere. Kan mod betaling hjælpe med klargøring.</p></div>
+        </div>
+        <div class="card">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?w=600&auto=format&fit=crop" alt="Autocamper" loading="lazy" /></div>
+          <div class="card-body"><h3>Autocampere</h3><p>Din autocamper står trygt i vores bygning i off-sæsonen.</p></div>
+        </div>
+        <div class="card">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&auto=format&fit=crop" alt="Veteranbil" loading="lazy" /></div>
+          <div class="card-body"><h3>Veteranbiler</h3><p>Vi opbevarer gerne veteranbiler. Bemærk, der ikke er varme året rundt.</p></div>
+        </div>
+        <div class="card">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=600&auto=format&fit=crop" alt="Motorcykel" loading="lazy" /></div>
+          <div class="card-body"><h3>Motorcykler</h3><p>Vi opbevarer gerne motorcykler. Bemærk, der ikke er varme året rundt.</p></div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Stats -->
-  <section class="section">
+  <section class="stats">
     <div class="container">
-      <div class="stats">
-        <div class="stat"><div class="big">24/7</div><div class="small">Kontakt på mail eller telefon</div></div>
-        <div class="stat"><div class="big">780 kvm</div><div class="small">Opbevaring i hallen</div></div>
-        <div class="stat"><div class="big">29,7 km</div><div class="small">Fra Silkeborg</div></div>
-        <div class="stat"><div class="big">Frostsikring</div><div class="small">Husk frostsikring af dit køretøj</div></div>
+      <div class="stats-grid">
+        <div class="stat"><div class="icon">🕐</div><div class="big">24/7</div><div class="small">Kontakt på mail eller telefon</div></div>
+        <div class="stat"><div class="icon">🏢</div><div class="big">780 kvm</div><div class="small">Opbevaring i hallen</div></div>
+        <div class="stat"><div class="icon">📍</div><div class="big">29,7 km</div><div class="small">Fra Silkeborg</div></div>
+        <div class="stat"><div class="icon">❄️</div><div class="big">Frostsikring</div><div class="small">Husk frostsikring af dit køretøj</div></div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="section" style="background:var(--green);color:#fff;text-align:center">
+  <section class="cta-banner">
     <div class="container">
-      <h2 style="color:#fff">Vil du vide mere?</h2>
-      <p style="color:rgba(255,255,255,.9);max-width:500px;margin:0 auto 1.75rem">Læs mere om vores opbevaringsforhold, eller kontakt os for et uforpligtende tilbud.</p>
-      <a href="/kontakt" class="btn btn-amber">Kontakt os i dag</a>
+      <h2>Vil du vide mere?</h2>
+      <p>Læs mere om vores opbevaringsforhold, eller kontakt os for et uforpligtende tilbud.</p>
+      <a href="/kontakt" class="btn">Kontakt os i dag</a>
     </div>
   </section>
 </Layout>
