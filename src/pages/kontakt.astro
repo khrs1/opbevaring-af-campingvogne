@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Kontakt os">
+  <section class="hero">
+    <div class="container">
+      <h1>Kontakt os</h1>
+      <p>Har du spørgsmål om opbevaring? Få fat i os på telefon eller via formularen herunder.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="max-width:640px;margin:0 auto">
+        <div style="text-align:center;margin-bottom:2rem">
+          <p style="font-weight:700">Adresse: Trindhøjvej 5, 7361 Ejstrupholm</p>
+          <p style="margin-top:.5rem"><a href="tel:+4527210795" style="color:var(--green);font-weight:700">Ring til Jens: +45 27 21 07 95</a></p>
+          <p style="margin-top:.5rem"><a href="mailto:opbevaringafcampingvogne@gmail.com" style="color:var(--green);font-weight:700">opbevaringafcampingvogne@gmail.com</a></p>
+          <p style="margin-top:.5rem;color:var(--muted)">Telefontid 9:00 til 20:00</p>
+        </div>
+
+        <h2 style="text-align:center">Send os en besked</h2>
+        <form class="contact-form" method="post" action="https://formsubmit.co/opbevaringafcampingvogne@gmail.com">
+          <input type="hidden" name="_subject" value="Ny forespørgsel fra opbevaring-af-campingvogne.dk" />
+          <input type="hidden" name="_next" value="https://opbevaring-af-campingvogne.dk/tak" />
+          <input type="text" name="_honey" style="display:none" />
+          <label>
+            Navn
+            <input type="text" name="navn" required placeholder="Dit navn" />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required placeholder="Din email" />
+          </label>
+          <label>
+            Telefon
+            <input type="tel" name="telefon" placeholder="Dit telefonnummer" />
+          </label>
+          <label>
+            Hvad ønsker du opbevaret?
+            <select name="koeretoej">
+              <option value="Campingvogn">Campingvogn</option>
+              <option value="Autocamper">Autocamper</option>
+              <option value="Bådtrailer m. båd">Bådtrailer m. båd</option>
+              <option value="Bil">Bil</option>
+              <option value="Mindre køretøj (MC, ATV)">Mindre køretøj (MC, ATV)</option>
+            </select>
+          </label>
+          <label>
+            Besked
+            <textarea name="besked" rows="5" placeholder="Skriv din besked her..."></textarea>
+          </label>
+          <button type="submit" class="btn" style="width:100%">Send besked</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact-form{display:grid;gap:1rem;margin-top:1.5rem}
+  .contact-form label{display:grid;gap:.4rem;font-weight:600;font-size:.95rem}
+  .contact-form input,.contact-form select,.contact-form textarea{padding:.8rem 1rem;border:1px solid var(--border);border-radius:8px;font-size:1rem;font-family:inherit;background:var(--surface);color:var(--text)}
+  .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:none;border-color:var(--green)}
+</style>

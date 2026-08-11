@@ -1,0 +1,147 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Opbevaring af campingvogne, autocampere, både og veteranbiler i Ejstrupholm, Jylland." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | Opbevaring af Campingvogne</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={`https://opbevaring-af-campingvogne.dk${Astro.url.pathname}`} />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--green:#2f6b3f;--green-dk:#245330;--amber:#d98e2b;--bg:#f7f8f5;--surface:#fff;--text:#1c2b20;--muted:#5c6b60;--border:#e2e6de}
+    html{scroll-behavior:smooth}
+    body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    .container{width:100%;max-width:1100px;margin:0 auto;padding:0 1.25rem}
+
+    /* Header */
+    .site-header{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;max-width:1100px;margin:0 auto;gap:1rem}
+    .logo{font-size:1.1rem;font-weight:800;color:var(--green);line-height:1.2}
+    .logo span{display:block;font-size:.75rem;font-weight:500;color:var(--muted);letter-spacing:.02em}
+    nav{display:flex;gap:1.5rem;align-items:center}
+    nav a{font-size:.95rem;font-weight:600;color:var(--text);transition:color .15s}
+    nav a:hover{color:var(--green)}
+    .nav-cta{background:var(--green);color:#fff!important;padding:.6rem 1.25rem;border-radius:8px;font-weight:700}
+    .nav-cta:hover{background:var(--green-dk);color:#fff!important}
+    .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:.5rem}
+    .mobile-menu{display:none;background:var(--surface);border-top:1px solid var(--border);padding:1rem 1.25rem}
+    .mobile-menu.open{display:block}
+    .mobile-menu a{display:block;padding:.75rem 0;font-weight:600;border-bottom:1px solid var(--border)}
+    @media(max-width:768px){nav{display:none}.nav-toggle{display:block}}
+
+    /* Buttons */
+    .btn{display:inline-block;background:var(--green);color:#fff;padding:.8rem 1.5rem;border-radius:8px;font-weight:700;font-size:1rem;transition:background .15s;border:none;cursor:pointer}
+    .btn:hover{background:var(--green-dk)}
+    .btn-amber{background:var(--amber)}
+    .btn-amber:hover{background:#c67d1f}
+    .btn-outline{background:transparent;border:2px solid var(--green);color:var(--green)}
+    .btn-outline:hover{background:var(--green);color:#fff}
+
+    /* Sections */
+    .hero{background:linear-gradient(135deg,#245330,#2f6b3f);color:#fff;padding:4rem 0}
+    .hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:1rem}
+    .hero p{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,.92);max-width:640px;margin-bottom:1.75rem}
+    .hero .btn{margin-right:.5rem}
+    .section{padding:3.5rem 0}
+    .section h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:1rem;color:var(--text)}
+    .section .lead{color:var(--muted);max-width:700px;margin-bottom:2rem}
+
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2rem}
+    .feature{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem}
+    .feature .num{font-size:2rem;font-weight:800;color:var(--green)}
+    .feature .lbl{font-weight:700;margin-top:.25rem}
+    .feature p{font-size:.9rem;color:var(--muted);margin-top:.5rem}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2rem}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.75rem}
+    .card h3{font-size:1.2rem;font-weight:800;margin-bottom:.75rem;color:var(--green)}
+    .card p{font-size:.95rem;color:var(--text)}
+
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.5rem;text-align:center}
+    .stat .big{font-size:2.5rem;font-weight:800;color:var(--green)}
+    .stat .small{color:var(--muted)}
+
+    .contact-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2.5rem;max-width:600px;margin:0 auto;text-align:center}
+    .contact-box h2{margin-bottom:1rem}
+    .contact-box .info{margin:1.5rem 0}
+    .contact-box .info p{margin:.5rem 0;font-size:1.05rem}
+    .contact-box a{color:var(--green);font-weight:700}
+
+    /* Footer */
+    .site-footer{background:#1c2b20;color:rgba(255,255,255,.75);padding:3rem 0 1.5rem}
+    .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-bottom:2rem}
+    .footer-col h4{color:#fff;font-size:1rem;font-weight:700;margin-bottom:1rem}
+    .footer-col p,.footer-col a{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.6}
+    .footer-col a{display:block;margin-bottom:.5rem}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{text-align:center;border-top:1px solid rgba(255,255,255,.12);padding-top:1.5rem;font-size:.8rem;color:rgba(255,255,255,.5)}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">Opbevaring af Campingvogne<span>Ejstrupholm, Jylland</span></a>
+      <nav aria-label="Hovednavigation">
+        <a href="/">Forside</a>
+        <a href="/om-os">Om os</a>
+        <a href="/opbevaring">Opbevaring</a>
+        <a href="/priser">Priser</a>
+        <a href="/kontakt" class="nav-cta">Kontakt os</a>
+      </nav>
+      <button class="nav-toggle" onclick="document.getElementById('mm').classList.toggle('open')" aria-label="Menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mm">
+      <a href="/">Forside</a>
+      <a href="/om-os">Om os</a>
+      <a href="/opbevaring">Opbevaring</a>
+      <a href="/priser">Priser</a>
+      <a href="/kontakt">Kontakt os</a>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Opbevaring af Campingvogne</h4>
+          <p>Vi er din go-to, når det kommer til opbevaring af campingvogne i Jylland. Sikker og tør opbevaring i Ejstrupholm.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="/">Forside</a>
+          <a href="/om-os">Om os</a>
+          <a href="/opbevaring">Opbevaring</a>
+          <a href="/priser">Priser</a>
+          <a href="/kontakt">Kontakt</a>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <p>Trindhøjvej 5<br/>7361 Ejstrupholm</p>
+          <a href="mailto:opbevaringafcampingvogne@gmail.com">opbevaringafcampingvogne@gmail.com</a>
+          <a href="tel:+4527210795">+45 27 21 07 95</a>
+          <p>Telefontid 9:00 til 20:00</p>
+        </div>
+      </div>
+      <div class="footer-bottom">© {new Date().getFullYear()} opbevaring-af-campingvogne.dk</div>
+    </div>
+  </footer>
+</body>
+</html>
