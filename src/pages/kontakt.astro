@@ -25,10 +25,8 @@ import Layout from '../layouts/Layout.astro';
         </p>
 
         <h3 style="text-align:center;margin-bottom:.5rem">Send os en besked</h3>
-        <form class="contact-form" method="post" action="https://formsubmit.co/opbevaringafcampingvogne@gmail.com">
-          <input type="hidden" name="_subject" value="Ny forespørgsel fra opbevaring-af-campingvogne.dk" />
-          <input type="hidden" name="_next" value="https://opbevaring-af-campingvogne.dk/tak" />
-          <input type="text" name="_honey" style="display:none" />
+        <form class="contact-form" id="contactForm" novalidate data-turnstile-sitekey="0x4AAAAAAEdMG_sEQkv24nCE">
+          <div id="cf-turnstile" class="cf-turnstile"></div>
           <label>
             Navn
             <input type="text" name="navn" required placeholder="Dit navn" />
@@ -56,8 +54,57 @@ import Layout from '../layouts/Layout.astro';
             <textarea name="besked" rows="5" placeholder="Skriv din besked her..."></textarea>
           </label>
           <button type="submit" class="btn" style="width:100%">Send besked</button>
+          <p id="formMsg" class="form-msg" role="status" aria-live="polite" style="display:none"></p>
         </form>
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  .form-msg { margin-top:1rem; padding:.8rem; border-radius:8px; font-weight:600; text-align:center; }
+  .form-msg.error { background:#fee2e2; color:#991b1b; }
+  .form-msg.ok { background:#dcfce7; color:#166534; }
+</style>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+<script>
+  const form = document.getElementById('contactForm');
+  const msg = document.getElementById('formMsg');
+  function initTurnstile(){
+    if (window.turnstile) {
+      window.turnstile.render(document.getElementById('cf-turnstile'), {
+        sitekey: form.dataset.turnstileSitekey,
+        callback: function(token){ const inp = form.querySelector('[name="cf-turnstile-response"]'); if(inp) inp.value = token; },
+      });
+    }
+  }
+  if (document.readyState === 'complete') initTurnstile();
+  else window.addEventListener('load', initTurnstile);
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    msg.style.display = 'none';
+    msg.className = 'form-msg';
+    const token = form.querySelector('[name="cf-turnstile-response"]')?.value;
+    if (!token) {
+      showMsg('Bekræft at du ikke er en robot.', 'error');
+      return;
+    }
+    const fd = new FormData(form);
+    fd.append('cf-turnstile-response', token);
+    try {
+      const r = await fetch('/contact', { method: 'POST', body: fd });
+      const j = await r.json();
+      if (r.ok && j.ok) {
+        showMsg('Tak for din besked! Vi vender tilbage til dig.', 'ok');
+        form.reset();
+        window.location.href = '/tak';
+      } else {
+        showMsg(j.error || 'Noget gik galt. Prøv igen.', 'error');
+      }
+    } catch {
+      showMsg('Kunne ikke sende. Tjek din forbindelse og prøv igen.', 'error');
+    }
+  });
+  function showMsg(t, cls){ msg.textContent = t; msg.className = 'form-msg ' + cls; msg.style.display = 'block'; }
+</script>
