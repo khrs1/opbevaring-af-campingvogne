@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ContactForm from '../../components/ContactForm.astro';
 ---
 
 <Layout title="Opbevaring af både og bådtrailere i Jylland">
@@ -18,7 +19,7 @@ import Layout from '../../layouts/Layout.astro';
 
       <div class="features" style="margin-top:2rem">
         <div class="feature"><div class="icon">🏠</div><div class="lbl">Indendørs opbevaring</div><p>Din båd står på trailer i ly i vores hal.</p></div>
-        <div class="feature"><div class="icon">📹</div><div class="lbl">Videoovervågning 24/7</div><p>Døgnet rundt beskyttelse af din båd.</p></div>
+        <div class="feature"><div class="icon">🔒</div><div class="lbl">Aflåst område</div><p>Din båd står i et aflåst og beskyttet område.</p></div>
         <div class="feature"><div class="icon">🌡️</div><div class="lbl">Frostsikret</div><p>Velventileret hal, der minimerer frostskader.</p></div>
         <div class="feature"><div class="icon">💧</div><div class="lbl">Vinterklargøring</div><p>Kan mod betaling hjælpe med rens, vask og tømning af vand.</p></div>
       </div>
@@ -34,7 +35,7 @@ import Layout from '../../layouts/Layout.astro';
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.75rem;margin:2rem 0">
         <h3 style="color:var(--navy);margin-bottom:.5rem">Hvad koster bådopbevaring?</h3>
         <p style="margin-bottom:1rem">Prisen afhænger af din båds størrelse og opbevaringsperiode. Vi afgiver gerne et uforpligtende tilbud.</p>
-        <a href="/kontakt" class="btn">Få et tilbud</a>
+        <ContactForm defaultKoeretoej="Bådtrailer m. båd" />
       </div>
     </div>
   </section>

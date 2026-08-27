@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
 ---
 
 <Layout title="Kontakt os">
@@ -23,88 +24,8 @@ import Layout from '../layouts/Layout.astro';
           <a href="tel:+4527210795" style="color:var(--orange);font-weight:700">📞 Ring til Jens: +45 27 21 07 95</a><br/>
           <a href="mailto:opbevaringafcampingvogne@gmail.com" style="color:var(--orange);font-weight:700">✉️ opbevaringafcampingvogne@gmail.com</a>
         </p>
-
-        <h3 style="text-align:center;margin-bottom:.5rem">Send os en besked</h3>
-        <form class="contact-form" id="contactForm" novalidate data-turnstile-sitekey="0x4AAAAAAEdMG_sEQkv24nCE">
-          <div id="cf-turnstile" class="cf-turnstile"></div>
-          <label>
-            Navn
-            <input type="text" name="navn" required placeholder="Dit navn" />
-          </label>
-          <label>
-            Email
-            <input type="email" name="email" required placeholder="Din email" />
-          </label>
-          <label>
-            Telefon
-            <input type="tel" name="telefon" placeholder="Dit telefonnummer" />
-          </label>
-          <label>
-            Hvad ønsker du opbevaret?
-            <select name="koeretoej">
-              <option value="Campingvogn">Campingvogn</option>
-              <option value="Autocamper">Autocamper</option>
-              <option value="Bådtrailer m. båd">Bådtrailer m. båd</option>
-              <option value="Bil">Bil</option>
-              <option value="Mindre køretøj (MC, ATV)">Mindre køretøj (MC, ATV)</option>
-            </select>
-          </label>
-          <label>
-            Besked
-            <textarea name="besked" rows="5" placeholder="Skriv din besked her..."></textarea>
-          </label>
-          <button type="submit" class="btn" style="width:100%">Send besked</button>
-          <p id="formMsg" class="form-msg" role="status" aria-live="polite" style="display:none"></p>
-        </form>
+        <ContactForm />
       </div>
     </div>
   </section>
 </Layout>
-
-<style>
-  .form-msg { margin-top:1rem; padding:.8rem; border-radius:8px; font-weight:600; text-align:center; }
-  .form-msg.error { background:#fee2e2; color:#991b1b; }
-  .form-msg.ok { background:#dcfce7; color:#166534; }
-</style>
-
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
-<script>
-  const form = document.getElementById('contactForm');
-  const msg = document.getElementById('formMsg');
-  function initTurnstile(){
-    if (window.turnstile) {
-      window.turnstile.render(document.getElementById('cf-turnstile'), {
-        sitekey: form.dataset.turnstileSitekey,
-        callback: function(token){ const inp = form.querySelector('[name="cf-turnstile-response"]'); if(inp) inp.value = token; },
-      });
-    }
-  }
-  if (document.readyState === 'complete') initTurnstile();
-  else window.addEventListener('load', initTurnstile);
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    msg.style.display = 'none';
-    msg.className = 'form-msg';
-    const token = form.querySelector('[name="cf-turnstile-response"]')?.value;
-    if (!token) {
-      showMsg('Bekræft at du ikke er en robot.', 'error');
-      return;
-    }
-    const fd = new FormData(form);
-    fd.append('cf-turnstile-response', token);
-    try {
-      const r = await fetch('/contact', { method: 'POST', body: fd });
-      const j = await r.json();
-      if (r.ok && j.ok) {
-        showMsg('Tak for din besked! Vi vender tilbage til dig.', 'ok');
-        form.reset();
-        window.location.href = '/tak';
-      } else {
-        showMsg(j.error || 'Noget gik galt. Prøv igen.', 'error');
-      }
-    } catch {
-      showMsg('Kunne ikke sende. Tjek din forbindelse og prøv igen.', 'error');
-    }
-  });
-  function showMsg(t, cls){ msg.textContent = t; msg.className = 'form-msg ' + cls; msg.style.display = 'block'; }
-</script>

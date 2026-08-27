@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ContactForm from '../../components/ContactForm.astro';
 ---
 
 <Layout title="Opbevaring af veteranbiler i Jylland">
@@ -18,14 +19,14 @@ import Layout from '../../layouts/Layout.astro';
 
       <div class="features" style="margin-top:2rem">
         <div class="feature"><div class="icon">🏠</div><div class="lbl">Indendørs opbevaring</div><p>Din veteranbil står i ly i vores hal.</p></div>
-        <div class="feature"><div class="icon">📹</div><div class="lbl">Videoovervågning 24/7</div><p>Døgnet rundt beskyttelse.</p></div>
+        <div class="feature"><div class="icon">🔒</div><div class="lbl">Aflåst område</div><p>Din veteranbil står i et aflåst og beskyttet område.</p></div>
         <div class="feature"><div class="icon">💨</div><div class="lbl">Ventileret hal</div><p>God luftcirkulation for din bil.</p></div>
       </div>
 
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.75rem;margin:2rem 0">
         <h3 style="color:var(--navy);margin-bottom:.5rem">Vigtigt at vide</h3>
         <p style="margin-bottom:1rem">Der er ikke varme i hallen året rundt. Kontakt os gerne for at høre mere om vores faciliteter, så du ved, om det passer til din veteranbil.</p>
-        <a href="/kontakt" class="btn">Kontakt os</a>
+        <ContactForm defaultKoeretoej="Bil" />
       </div>
     </div>
   </section>

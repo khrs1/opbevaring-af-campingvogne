@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
 ---
 
 <Layout title="Opbevaring af campingvogn i Jylland – helårs- og vinteropbevaring">
@@ -26,11 +27,10 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="features">
         <div class="feature"><div class="icon">🏠</div><div class="lbl">Indendørs opbevaring</div><p>Din vogn står beskyttet i vores haller året rundt.</p></div>
-        <div class="feature"><div class="icon">📹</div><div class="lbl">Gratis opsyn og overvågning</div><p>Videoovervågning døgnet rundt.</p></div>
         <div class="feature"><div class="icon">💰</div><div class="lbl">Jyske priser</div><p>Rimelige og konkurrencedygtige priser.</p></div>
         <div class="feature"><div class="icon">🌡️</div><div class="lbl">Tør og sikker opbevaring</div><p>Beskytter mod vejrets luner.</p></div>
         <div class="feature"><div class="icon">💨</div><div class="lbl">Ventileret hal</div><p>God luftcirkulation for optimal opbevaring.</p></div>
-        <div class="feature"><div class="icon">🔒</div><div class="lbl">Videoovervågning 24/7</div><p>Din vogn er under konstant opsyn.</p></div>
+        <div class="feature"><div class="icon">🔒</div><div class="lbl">Låst og aflåst område</div><p>Dit køretøj står i et aflåst område.</p></div>
       </div>
 
       <div style="text-align:center;margin-top:2rem">
@@ -53,15 +53,15 @@ import Layout from '../layouts/Layout.astro';
           <div class="card-body"><h3>Campingvogne</h3><p>Den opgave vi oftest får. Vi sørger for, at dit andet hjem står sikkert året rundt.</p></div>
         </div>
         <div class="card">
-          <div class="card-img"><img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=600&auto=format&fit=crop" alt="Opbevaring af båd på trailer" loading="lazy" /></div>
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=600&auto=format&fit=crop" alt="Opbevaring af båd på trailer" loading="lazy" /></div>
           <div class="card-body"><h3>Både</h3><p>Opbevaring af både på trailere, klar til vinter. Kan mod betaling hjælpe med klargøring.</p><a href="/opbevaring/baadopbevaring" style="color:var(--orange);font-weight:700">Læs om bådopbevaring →</a></div>
         </div>
         <div class="card">
-          <div class="card-img"><img src="https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?w=600&auto=format&fit=crop" alt="Opbevaring af autocamper" loading="lazy" /></div>
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1506015391300-4802dc74de2e?w=600&auto=format&fit=crop" alt="Opbevaring af autocamper" loading="lazy" /></div>
           <div class="card-body"><h3>Autocampere</h3><p>Din autocamper står trygt i vores bygning i off-sæsonen.</p><a href="/opbevaring/autocampere" style="color:var(--orange);font-weight:700">Læs om autocampere →</a></div>
         </div>
         <div class="card">
-          <div class="card-img"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&auto=format&fit=crop" alt="Opbevaring af veteranbil" loading="lazy" /></div>
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&auto=format&fit=crop" alt="Opbevaring af veteranbil" loading="lazy" /></div>
           <div class="card-body"><h3>Veteranbiler</h3><p>Vi opbevarer gerne veteranbiler.</p><a href="/opbevaring/veteranbiler" style="color:var(--orange);font-weight:700">Læs om veteranbiler →</a></div>
         </div>
         <div class="card">
@@ -116,7 +116,18 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <h2>Vil du vide mere?</h2>
       <p>Læs mere om vores opbevaringsforhold, eller kontakt os for et uforpligtende tilbud på opbevaring af din campingvogn.</p>
-      <a href="/kontakt" class="btn">Kontakt os i dag</a>
+    </div>
+  </section>
+
+  <!-- Contact form -->
+  <section class="section">
+    <div class="container" style="max-width:820px">
+      <div class="center" style="margin-bottom:1.5rem">
+        <span class="kicker">Kontakt</span>
+        <h2>Få et uforpligtende tilbud</h2>
+        <p class="lead" style="margin-left:auto;margin-right:auto">Send os en besked, så vender vi tilbage til dig hurtigst muligt.</p>
+      </div>
+      <ContactForm defaultKoeretoej="Campingvogn" />
     </div>
   </section>
 </Layout>
